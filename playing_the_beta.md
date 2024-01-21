@@ -17,8 +17,8 @@ You'll need:
 * Enter commands by typing them out and hitting enter
   1. `where python`
      * should return a path in `C:/Program Files/Python311` (or `Python310` for 3.10)
-     * **OR** can return a path in `C:/Users`, unless it's in `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
-     * If multiple paths appear, we only care about the first one
+     * **OR** can return a path in `C:/Users` (user installation), unless it's in `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
+     * If multiple paths appear, we only care about the first one; ie if the winget version is installed but second in the list, we don't care.
   2. `python --version` should print the version -- make sure it's 3.10 or 3.11
 * Check the path for Python -- it's broken for a lot of people for some reason
   1. In the start menu, type "env" to click on the option "Modify the System Environment Variables"

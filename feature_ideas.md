@@ -8,7 +8,7 @@
   * Templar's Return
 * Allow changing player colour during missions
 * Scouting
-  * Completing a missions can hint remaining checks or remaining challenge checks
+  * Completing a mission can hint remaining checks or remaining challenge checks
 * Deathlink
   * Instant mission fail? (Unfun)
   * Snipe / reduce to red main Command Center
@@ -19,15 +19,10 @@
 * Workers for other races
 * Filler +max supply (over 200)
 * New mercs
-  * Skibi's Angel (Medic)
-  * Outback Hunter (Hellion)
-  * Death Head (Reaper)
-  * ?Wraith
   * ?Predator
   * New BCs -- theme after infantry / mech
 * Merc cooldown reduction
   * Progressive 3x "-30s or -12.5% cooldown / merc tier" (--sraw)
-* Remove merc max charges (except Jackson's Revenge)
 * Mercs for zerg / protoss
 * Relocate ebay / merc compound / armory
   * Make them float, like BW (--Alice Voltaire)
@@ -37,6 +32,44 @@
   * Hero abilities as more checks
 * Hero randomization on no-builds
 
+## Predators
+From Envy Dragon, 2024-01-19
+concept 1:
+* by default, predators have 50 energy and 0 energy regen.
+* by default, predators gain a "pursuit mode" toggle that drains energy at a constant rate, but grants increased move speed and armor(?)
+* by default, retribution fields restore 1-2 energy for each target they deal damage to
+* by default, predators rapidly regenerate energy after 5 seconds out of combat (or something)
+* Cloak upgrade is replaced with "predators are cloaked in pursuit mode"
+* New upgrade: "predators ignore unit collision in pursuit mode" or something
+* New upgrade: "during pursuit mode, destroyed predators respawn at your main town hall" with a large cooldown
+* New upgrade: "+25 max energy; pursuit mode now costs 25 energy to activate, but grants a 100hp shield on activation"
+
+concept 2:
+* replace charge with a point-and-click leap attack, damaging and slowing on arrival
+* new upgrade: dealing damage to an enemy grants a temporary buff with a cooldown (damage or defense or both)
+* new upgrade: retribution field gets bigger with consecutive attacks
+* new upgrade: if target of attack has energy, each attack drains 20 energy to deal 20 extra to them? idk
+
+concept 3:
+* default: toggleable autocast, grants a teleport-dash (roughly charge range) that can only dash onto targets with an energy bar, then grants itself a 50 damage shield(?)
+* new upgrade: dash also grants an attack speed buff
+* new upgrade: dash has a feedback effect? idk
+* new upgrade: killing an enemy deals X damage to units around that enemy (increased if target was Psionic)
+
+Phanerus: a knockback effect like Artanis's resurgence (scale: melee reaper grenade) to help them retreat / clump enemies?
+
+### Ability ideas
+* [Baseline] Resource efficiency
+* Knockback away from the predator
+* cooldown-based Phasing Cloak that allows passing through surrounds to escape
+* Centurion charge / leap
+* [Passive] Retribution field size
+* Melee EMP centered on the Predator
+* [baseline?] +1 armour or bonus armour while moving
+
+## Item Adjustment
+* Evolved Carapace (Brood Lord) should also affect Guardians
+
 ### Multi-race
 * Magnemania locally added probes to be built from CC
   * Workers may come from Merc compound (--Phanerus)
@@ -45,13 +78,14 @@
 * Race swap can come later, but general idea is to leave preplaced units unchanged and only change workers / buildings
 
 ## yaml / options changes
-* Configurable minerals / gas amounts (--Ziktofel)
 * Be able to ban certain kinds of filler (no +minerals, no +gas, etc)
 * Item groups
   * More detailed (mercenary, unit, upgrade, etc)
 * Default difficulty set to normal instead of casual
 
 ## Modify missions
+* [In_Utter_Darkness] Add a button to spawn a wave of enemies
+* [The_Outlaws,Zero_Hour,NCO] Add a starting Merc Compound
 * [Liberation_Day] Randomize units in the drop (Reaper, Marine, Marauder, Spectre, Ghost, Firebat)
 * [All-in] Randomize artifact effect (artifact blast, Odin calldown, laser drill)
 * [No-build] Buildable crack-team in no-builds (--Alice Voltaire)
@@ -71,9 +105,6 @@
 * [Challenge] The Great Train Robbery: Planetary Fortress
 * [Challenge] Echoes of the Future: Clear all bases
 * [Challenge] In Utter Darkness: Omegalisk (1 of 3 or all 3?)
-* [Short-Campaigns] All-in: Kerrigan 1
-* [Short-Campaigns] All-in: Kerrigan 2
-* [Short-Campaigns] All-in: Kerrigan 3
 * Maybe look towards achievements
 
 ### Maybe use speedrun achievements
@@ -146,7 +177,7 @@ Proposed by Berserker on 2023-10-01. Looking towards vanilla speedrunning achiev
   * Tech Labs
 
 ### Transient
-* **Note** it's lots of extra work to get mission-specific details for each map
+* **Note** it's lot of extra work to get mission-specific details for each map
   * Most of these are also probably intended as jokes
 * Set player color to rainbow, must be reset with `/color`
 * Swap numbered hotkeys around

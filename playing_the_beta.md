@@ -51,11 +51,13 @@ You'll need:
 ## Running
 It is recommended that the first time you run from source, you run from a command-prompt. This is because if there is an error, the command prompt will stay open so you can read it and ask for help. You can run by double-clicking files in the explorer, but the terminal will close instantly on error.
 
-* Open or re-use a command-prompt in `D:/example/Archipelago`
-* run `python setup.py`
+* Open or an Administrator command-prompt in `D:/example/Archipelago`
+  * You can get an administrator terminal when you start cmd by right-clicking it and selecting "run as administrator"
+* run `python setup.py` in the administrator command prompt
   * This should ask to download all third party-libraries; hit enter to proceed
   * If this errors, share the error message in the discord to get help (and we can update this guide, hopefully)
   * Otherwise, we should be ready to go; command-prompt is optional from here on
+* Close the administrator command-prompt -- we shouldn't need it anymore, and it's not secure to leave administrator command-prompts open for long periods in general
 * Run `Launcher.py` to get your template yamls
 * Run `Generate.py` to generate a game with yamls in the Players/ folder
 * Run `MultiServer.py` to locally-host a generated world

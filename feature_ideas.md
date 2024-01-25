@@ -139,6 +139,33 @@ Proposed by Berserker on 2023-10-01. Looking towards vanilla speedrunning achiev
   * Staircase: n rungs of width m. Beat a mission to unlock the next rung (blitz)
   * Linear: linear set of missions (gauntlet, mini gauntlet)
 
+### Minor
+> if you do end up fiddling away with that yourself, it might be best to also have another or to have a mission make itself available on grid if its own goal is completed; there's currently an unintuitive behavior if a mission completion gets collected in an area of the grid you haven't reached yet, the surrounding missions become available but the collected mission doesn't 
+> -- Magnemania, 2023-10-04
+
+### Discussion 2024-01-24
+> as a fan of the vanilla shuffled setting it's a shame the HotS and LotV are so much more linear than WoL, I would love a shuffle setting that keeps the general structure but loosens the structure a bit like making it so you only have to do Kaldir or Char instead of both and same with Korhal/Shakuras and stuff like that  
+> ...  
+> I think the WoL campaign shuffle is a really good middleground
+> 
+> --Genderdruid
+
+> I do not like having massive grids, I like having some amount of direction I need to go  
+> grids are too open  
+> ...  
+> what I really want out of mission orders is two things:  
+> 1. I want a generic "campaign" mission order that is dynamic and grows and shrinks depending on how many missions you have
+> 2. I want the ability to have up to three (or more?) non-vanilla mission orders in one game, like three Gauntlets, three Grids, etc.  That way I can have one for each race all in one slot without being forced to do the big big ones like Vanilla Shuffled
+> * * This will matter more once more campaigns start getting added, but I'd also like to be able to divide the mission orders up by race so I can include a bunch of missions across multiple campaigns, and the game collects them and gives me randomized Terran, Zerg, and Protoss campaigns out of them
+> 3. I want the ability to adjust the amount of missions each race has in a given mission order.  That way I can "normalize" them within a grid so that they have equal presence, but also have it adjustable to allow for any funky mission order ideas people come up with
+> * * (note: if this is too difficult to implement, a simple "normalize" feature would be equally appreciated by me)
+> 
+> --Alice Voltaire
+
+* Can use existing "Shuffle Campaigns" option to factor into Multi-X mission orders
+* Should probably adjust shuffle campaigns to restrict by campaign, faction, or none
+  * Maybe give special treatment to prologue / prophecy / epilogue?
+
 ## Tracker
 * Indicate locked items
 * Indicate excluded items

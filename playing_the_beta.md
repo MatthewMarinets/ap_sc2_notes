@@ -21,16 +21,28 @@ You'll need:
      * If multiple paths appear, we only care about the first one; ie if the winget version is installed but second in the list, we don't care.
   2. `python --version` should print the version -- make sure it's 3.10 or 3.11
 * Check the path for Python -- it's broken for a lot of people for some reason
-  1. In the start menu, type "env" to click on the option "Modify the System Environment Variables"
-  2. In the "System Properties" popup, click "Environment Variables"
+  1. In the start menu, type "env" to click on the option "Modify the System Environment Variables" (Fig. 1)
+  2. In the "System Properties" popup, click "Environment Variables" (Fig. 2)
   3. If you installed Python system-wide, look in the bottom box; if you installed it just for your user, look in the top box
   4. Find the "Path" Variable and double-click it to edit it
-  5. Verify these two paths are in the list: (These are for 3.11, 3.10 will have `Python310`, and assume system-wide installation)
+  5. Verify these two paths are in the list: (These are for 3.11, 3.10 will have `Python310`, and assume system-wide installation) (Fig. 3)
      * `C:\Program Files\Python311\`
      * `C:\Program Files\Python311\Scripts\`
      * Make sure these appear _before_ any other python installation directory if you have multiple
-  6. If any path is missing, you can add it (and verify Python exists in that directory). If you make updates, be sure to restart command-prompt before continuing
+  6. If any path is missing, you can add it (and verify Python exists in that directory). *If you make updates, be sure to restart command-prompt before continuing*
   7. Check `where python` and `python --version` again if you made changes
+
+![Environment](./images/environment_variables_start.png)
+
+Figure 1: Opening the environment variables window
+
+![Variables](./images/environment_variables_panel.png)
+
+Figure 2: The variables to edit
+
+![Paths](./images/entering_path_variables.png)
+
+Figure 3: Adding the variables near the top of the list
 
 ## Downloading from git
 * The sc2 beta fork is here: https://github.com/Ziktofel/Archipelago.git

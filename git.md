@@ -35,7 +35,7 @@ I'll give some recommendations for installation options here:
 
 **Technical explanation**: This is because installations add themselves to a special variable called "PATH", which you can look up under Windows "Edit the system environment varibles" and double-clicking "Path". Note there's two options, one for all users on your machine and that gets added for just your account. Windows terminals only load this information on startup, so existing terminals don't see the installation. You can theoretically manually add this to the PATH within an existing terminal if you're attached to it for some reason.
 
-![Variables](./images/environment_variables_start.png)
+![Environment](./images/environment_variables_start.png)
 ![Variables](./images/environment_variables_panel.png)
 
 ## Getting started

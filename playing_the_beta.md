@@ -52,13 +52,16 @@ Figure 3: Adding the variables near the top of the list
   * Change drives by typing the drive name (e.g. `d:` will change to the D:/ drive)
   * See what folders you can go to by typing `dir`
   * Change folders by typing `cd <foldername>` (e.g. `cd example` will change directory to example)
+    * "cd" is short for "change directory"
+    * `cd ..` will go up one folder level (e.g. from `D:/example/subfolder` to `D:/example`)
     * auto-complete a folder name by hitting tab
   * run `git clone https://github.com/Ziktofel/Archipelago.git` to clone (download) the repository
     * This may take several seconds
-  * `cd` into the new `Archipelago/` directory
-  * run `git status` to verify the git repository is initialized correctly
-    * This should say what branch you're on; if you're not on `sc2-next`, change to it with `git checkout sc2-next`
-  * In future, you can get the latest updates by just running `git pull` from this location
+    * This will create a new folder called `Archipelago/`; you can check it exists with `dir`
+  * `cd` into the new `Archipelago/` folder
+* run `git status` to verify the git repository is initialized correctly
+  * This should say what branch you're on; if you're not on `sc2-next`, change to it with `git checkout sc2-next`
+* In future, you can get the latest updates by just running `git pull` from this location
 
 ## Running
 It is recommended that the first time you run from source, you run from a command-prompt. This is because if there is an error, the command prompt will stay open so you can read it and ask for help. You can run by double-clicking files in the explorer, but the terminal will close instantly on error.
@@ -67,7 +70,9 @@ It is recommended that the first time you run from source, you run from a comman
   * You can get an administrator terminal when you start cmd by right-clicking it and selecting "run as administrator"
 * run `python setup.py` in the administrator command prompt
   * This should ask to download all third party-libraries; hit enter to proceed
-  * If this errors, share the error message in the discord to get help (and we can update this guide, hopefully)
+  * We expect this to error with "error: no commands supplied"
+  * If there is some other error (usually complaining about cx_freeze), something went wrong with installing libraries.
+    * Share the error message in the discord to get help (and we can update this guide, hopefully)
   * Otherwise, we should be ready to go; command-prompt is optional from here on
 * Close the administrator command-prompt -- we shouldn't need it anymore, and it's not secure to leave administrator command-prompts open for long periods in general
 * Run `Launcher.py` to get your template yamls
@@ -78,6 +83,14 @@ It is recommended that the first time you run from source, you run from a comman
   * Run `/download_data` in the client to get the latest map and mod files
 * Report issues to the github at https://github.com/Ziktofel/Archipelago/issues
 * Have fun!
+
+## Troubleshooting
+### Uninstalling all libraries
+* This hopefully shouldn't be necessary, but might be if things got installed in user installs when Python / Archipelago wants it in at the system-level
+* in cmd, run:
+  * `python -m pip freeze > reqs.txt` to list all currently installed Python libraries in reqs.txt
+  * `python -m pip uninstall -r reqs.txt` to uninstall everything in reqs.txt
+  * `del reqs.txt` to delete the reqs.txt file
 
 ## Details / other ways of running for technical users
 Some people have extra requirements for maintaining their system or running the code

@@ -80,9 +80,30 @@ It is recommended that the first time you run from source, you run from a comman
 * Run `MultiServer.py` to locally-host a generated world
   * Tip: on command-line, you can run `MultiServer.py <output_zip_name>` to instantly start the server without going through a file-selection screen
 * Run `Starcraft2Client.py` to start up the sc2 client
-  * Run `/download_data` in the client to get the latest map and mod files
+  * [Update the map and mod files](#updating-the-mod-files)
 * Report issues to the github at https://github.com/Ziktofel/Archipelago/issues
 * Have fun!
+
+## Updating the mod files
+On main or older betas, you could just run `/download_data` to get the latest maps. As of the 2024.1 beta (the beta after multicampaign), `/download_data` is not hooked up with the latest maps yet. This is currently a manual process:
+
+* Sign into a github account. Make one if you don't have one
+* Go to the [Github Actions page for the map/mod repository](https://github.com/Ziktofel/Archipelago-SC2-data/actions)
+* Click the build (white text) for the latest build labeled `sc2-next`
+* Click the "Archipelago-SC2Data" link in the Artifacts section, near the bottom of the page. This requires being signed into github. This should download a .zip file
+* Unpack the .zip; it should contain folders named `Maps/` and `Mods/`. Paste the contents of these folders into the Maps/ and Mods/ folders of your sc2 install
+
+### Building locally
+This is an alternate way to get the maps, more useful for developers.
+* Clone the archipelago-sc2-data repository or your fork of it. Fork from [Ziktofel's fork](https://github.com/Ziktofel/Archipelago-SC2-data) or clone his fork directly
+* For windows users:
+  * Open `build_release_package.sh` and `Maps/ArchipelagoCampaign/build.sh` in an editor like vscode or Notepad++. Change the line ending to Unix-style (LF)
+    * In vscode, this is done by clicking the little "CRLF" in the bottom-bar or running the "Change End of Line Sequence" task, and selecting LF
+    * In Notepad++, this is done with Edit -> EOL Conversion -> LF
+  * Ensure you have WSL (Windows Subsystem for Linux) enabled. Use the WSL terminal to execute .sh scripts
+* Run `./build_release_package.sh` in a terminal. This should build the maps, and will take a minute or two
+* The result should appear in the target/ directory. Get the contained Maps/ and Mods/ folders to your sc2 install
+  * A neat trick is to create a symlink from `<sc2 install>/Maps/ArchipelagoCampaign` to `<repo clone>/target/Maps/ArchipelagoCampaign` (and similar for mods)
 
 ## Troubleshooting
 ### Uninstalling all libraries

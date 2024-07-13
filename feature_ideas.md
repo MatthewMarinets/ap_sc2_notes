@@ -81,6 +81,7 @@ Phanerus: a knockback effect like Artanis's resurgence (scale: melee reaper gren
 * Be able to ban certain kinds of filler (no +minerals, no +gas, etc)
 * Item groups
   * More detailed (mercenary, unit, upgrade, etc)
+  * By difficulty
 * Default difficulty set to normal instead of casual
 
 ## Modify missions
@@ -120,6 +121,23 @@ Proposed by Berserker on 2023-10-01. Looking towards vanilla speedrunning achiev
 | Maar-ked for Death   | A Sinister Turn      | 25:00        | Hard       |
 | Overmind Dead Body   | Echoes of the Future | 20:00        | Hard       |
 | Speed Too!           | Shatter the Sky      | 25:00        | Hard       |
+
+## New Mission orders
+* Funnel -- A triangle where you start with a full row, beat a mission to unlock missions below it, rows get narrower until width 1 is the goal
+* Hourglass -- like funnel, but re-widens after a pinch point. Beat the middle bottom mission to win
+* Plaid -- grid with every 4th mission removed
+* Ring -- like grid with middle removed (--Salzkorn)
+
+### Theory
+Mission orders are ultimately characterized by just a few parameters:
+* Connectivity, ie average number of missions unlocked by beating a mission
+* Optionality, ie how many missions are unavoidable vs you have choices and can never do one
+* Length, ie how many missions do you actually need to beat
+* Size, ie how many missions are there
+* Change, ie how do the above characteristics change as more missions are beaten
+* Presentation, ie how intuitive is progression
+
+* Optionality / length / size can probably be simplified to just 2 parameters
 
 ## Generalize mission orders
 * Current:
@@ -166,6 +184,33 @@ Proposed by Berserker on 2023-10-01. Looking towards vanilla speedrunning achiev
 * Should probably adjust shuffle campaigns to restrict by campaign, faction, or none
   * Maybe give special treatment to prologue / prophecy / epilogue?
 
+### Feedback
+> Hey there, been playing a lot of Archipelago lately, and I've encountered a couple issues with my runs, that kind of ruins the fun for me.
+> 
+> First, it's when I mix all campaigns to play some small scale grid or equivalent (I don't enjoy full campaigns nearly as much), and the units/upgrades distribution seems really skewed towards a single race each and every time (to a ratio of like 80%-90% of all unlocks being for one of the three races, making playing the other 2 just not great).
+> 
+> Second, the logic really railroads the whole randomizer from what I could test, giving always the same few units to start with, and as someone who enjoy both randomness and difficulty, I tend to just switch the logic off, but that comes with it's own load of issues. The worst one being that it forces Grant Story Tech on, making all no build missions, well, the exact same as Vanilla (and uh, I tend to play mods and stuff like this to get away from replaying Vanilla for the 20th time).
+> 
+> I also have a feeling the distribution of locations throughout the 4 options you get is not balanced. more than half of them are in the "Extra" category (about 300), when only about 15 are in the "Challenge" one. (And let's not talk about things like Killing the Protoss on Welcome to the Jungle is a challenge, but Killing the Protoss on The Dig doesn't even exist, when it's the exact same thing).
+> 
+> Lastly, but that's really more of a personal preference, but some units are just stupid. Cost reduction on Ghosts for example, cutting it by more than half, when it's already a top tier unit. Or Siege Tanks having 3 different upgrades for Range when Sieged ? Not sure they need all that, or at the very least it could be combined into one.
+> 
+> Anyway, I don't want this to be purely negative. I've been playing this a lot because I enjoy it, but I want to be able to replay a randomizer with a fresh run, not having the same issues and OP stuff soloing campaigns every time. Keep up the good work. And thanks for the mod.
+
+[--Stormzarn 2024-06-15](https://discord.com/channels/731205301247803413/980554570075873300/1251641950499508405)
+
+> My feedback here is that upgrades really need proper rebalancing, and to please stop using "We copy SC1 numbers" as a balancing point, because it's lead to really unfun designs and balance for me. Strong upgrades can be exciting when they're really rare, but a lot of the upgrades tend to "this unit is so much stronger now that you can solo spam it in 80% of missions to get through them", and that's not even when they have all of their upgrades
+> 
+> And yes, I could go to vanilla upgrades only, but just playing vanilla WoL randomizer I've done plenty, LotV has little of interest with vanilla only, and HotS has this problem even worse because you combine evolutions 
+> 
+> I really like it when you have to scrap your way through stuff, or have to check locations and back out to get enough to finish something somewhere else, and that just doesn't happen outside of multigames where you get very few of your own checks for me at this point, and I'm not having fun
+> 
+> Please don't disregard my feedback with "You can create your own yaml to fix it", that does not acknowledge or fix the issue
+> 
+> I have created my own yaml to fix this, and it is a lot of work and honestly? I usually want to play mods like this to get away from designing stuff
+
+[--Mindhawk, 2024-06-15](https://discord.com/channels/731205301247803413/980554570075873300/1251645452118396989)
+
 ## Tracker
 * Indicate locked items
 * Indicate excluded items
@@ -204,6 +249,7 @@ Proposed by Berserker on 2023-10-01. Looking towards vanilla speedrunning achiev
   * Tech Labs
 
 ### Transient
+* *Pull the Boys*: Your workers are teleported to your army
 * **Note** it's lot of extra work to get mission-specific details for each map
   * Most of these are also probably intended as jokes
 * Set player color to rainbow, must be reset with `/color`

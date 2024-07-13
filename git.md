@@ -83,6 +83,14 @@ Untracked files:
         new_file.txt
 ```
 
+### Make a new git repository
+Maybe you don't want to get someone else's files from github, but rather make your own. You'll have to know where you want to host your repository.
+* If you're a free user making something public, you can use github, gitlab, or bitbucket. You'll need an account, and there should be a button somewhere on your page to "create a new repository".
+  * By default, github and gitlab will include a few checkboxes to specify if you want to start with a description and a license, and then will give you on-screen instructions for downloading the initialized repository locally or uploading an existing folder as the contents of this new repository.
+* If you're a corporate user setting up with a company, you can use one of the above providers but your company will probably need some kind of paid plan and sort out the server infrastructure for themselves. "The cloud" is just someone else's computer, and many company policies are concerned with whose computer that is and may want to provide the server machine themselves.
+  * This is normally something to talk through with IT. If your company has a software department, they probably already have this infrastructure.
+* If you don't care about sharing between computers / other people, and only care about having branches and commits in a single local folder, you can navigate to that folder in a terminal and run `git init`.
+
 ## Theory
 *Vocabulary*: commit
 

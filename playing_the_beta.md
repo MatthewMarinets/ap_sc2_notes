@@ -80,16 +80,21 @@ It is recommended that the first time you run from source, you run from a comman
 * Run `MultiServer.py` to locally-host a generated world
   * Tip: on command-line, you can run `MultiServer.py <output_zip_name>` to instantly start the server without going through a file-selection screen
 * Run `Starcraft2Client.py` to start up the sc2 client
-  * [Update the map and mod files](#updating-the-mod-files)
+  * [Update the map and mod files](#updating-the-mod-files) by running `/download_data`
 * Report issues to the github at https://github.com/Ziktofel/Archipelago/issues
 * Have fun!
 
 ## Updating the mod files
-On main or older betas, you could just run `/download_data` to get the latest maps. As of the 2024.1 beta (the beta after multicampaign), `/download_data` is not hooked up with the latest maps yet. This is currently a manual process:
+The simplest way to get the latest files is to run `/download_data` in the client. This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases).
 
+### Installing manually from the releases page
+You generally shouldn't have to do this, but you can just do what `/download_data` does manually by going to the [releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases), selecting the Archipelago-SC2Data.zip artifact of the API version you want, unzipping, and putting the contents of the Maps/ and Mods/ folders into the corresponding folders of your sc2 install.
+
+### Installing manually from the actions page
+This also generally shouldn't be necessary, though it does allow selecting the mod files from a particular branch or push. So if you want to get the files for a feature which is still in PR (say, to assist in testing a new unit), you can follow these steps.
 * Sign into a github account. Make one if you don't have one
 * Go to the [Github Actions page for the map/mod repository](https://github.com/Ziktofel/Archipelago-SC2-data/actions)
-* Click the build (white text) for the latest build labeled `sc2-next`
+* Click the build (white text) for the latest build labeled with the desired branch
 * Click the "Archipelago-SC2Data" link in the Artifacts section, near the bottom of the page. This requires being signed into github. This should download a .zip file
 * Unpack the .zip; it should contain folders named `Maps/` and `Mods/`. Paste the contents of these folders into the Maps/ and Mods/ folders of your sc2 install
 

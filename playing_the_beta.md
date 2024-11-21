@@ -2,7 +2,7 @@
 ## Install tools
 You'll need:
 * git (see [the installation notes in the guide](git.md#installation))
-* Python 3.10 or 3.11 ([download here, don't get 3.12](https://www.python.org/downloads/))
+* Python 3.10 ~ 3.12 ([download here](https://www.python.org/downloads/))
   * Note Python should be installed from the installer, not from winget
   * I recommend doing a system-wide installation, and future instructions will largely assume that's the case
 * You can use a GUI git tool like GitHub for Desktop or SourceTree instead of baseline git; I will give command-line instructions as they're easier to type
@@ -16,18 +16,18 @@ You'll need:
 * Open a command prompt (start menu, type "cmd" and hit enter)
 * Enter commands by typing them out and hitting enter
   1. `where python`
-     * should return a path in `C:/Program Files/Python311` (or `Python310` for 3.10)
+     * should return a path in `C:/Program Files/Python312` (or `Python311` for 3.11, `Python310` for 3.10, etc)
      * **OR** can return a path in `C:/Users` (user installation), unless it's in `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
      * If multiple paths appear, we only care about the first one; ie if the winget version is installed but second in the list, we don't care.
-  2. `python --version` should print the version -- make sure it's 3.10 or 3.11
+  2. `python --version` should print the version -- make sure it's 3.10, 3.11, or 3.12
 * Check the path for Python -- it's broken for a lot of people for some reason
   1. In the start menu, type "env" to click on the option "Modify the System Environment Variables" (Fig. 1)
   2. In the "System Properties" popup, click "Environment Variables" (Fig. 2)
   3. If you installed Python system-wide, look in the bottom box; if you installed it just for your user, look in the top box
   4. Find the "Path" Variable and double-click it to edit it
-  5. Verify these two paths are in the list: (These are for 3.11, 3.10 will have `Python310`, and assume system-wide installation) (Fig. 3)
-     * `C:\Program Files\Python311\`
-     * `C:\Program Files\Python311\Scripts\`
+  5. Verify these two paths are in the list: (These are for 3.12, and assume system-wide installation) (Fig. 3)
+     * `C:\Program Files\Python312\`
+     * `C:\Program Files\Python312\Scripts\`
      * Make sure these appear _before_ any other python installation directory if you have multiple
   6. If any path is missing, you can add it (and verify Python exists in that directory). *If you make updates, be sure to restart command-prompt before continuing*
   7. Check `where python` and `python --version` again if you made changes

@@ -111,12 +111,12 @@ This is an alternate way to get the maps, more useful for developers.
   * A neat trick is to create a symlink from `<sc2 install>/Maps/ArchipelagoCampaign` to `<repo clone>/target/Maps/ArchipelagoCampaign` (and similar for mods)
 
 ## Troubleshooting
-### Dependency download failing with "can't find rust"
+### Dependency download failing with "can't find rust/cargo"
 This is a hopefully temporary problem caused by a recent (as of December 2024) update to a dependency library called `jellyfish`.
 `jellyfish` uses Rust in addition to Python for some extra speed. It precompiles for a wide variety of operating systems and Python versions.
 As of 8 December 2024, a new version (1.1.2) came out, which does not yet have precompiled downloads for most versions of Python on Windows.
-1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0` to install this version
-and rerun `setup.py` to install the rest of the dependencies.
+1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0` to install this version, then run `pip install -r requirements.txt` to install the remaining requirements, and you should be good to go.
+Note running `setup.py` when dependencies are partially installed won't work, as it may try to upgrade jellyfish as part of installing the other dependencies.
 Alternatively, you can install Cargo from the Rust foundation so pip will automatically build the library for your Python version and platform.
 
 You can check the downloadable versions of jellyfish on [their PyPI page](https://pypi.org/project/jellyfish/#files).

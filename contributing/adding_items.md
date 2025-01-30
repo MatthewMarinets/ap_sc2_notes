@@ -151,3 +151,25 @@ Many item groups are auto-generated from the item's race and type, so no action 
 Some item groups that are more thematic, such as Protoss subfactions or Zerg infested, are hand-curated, so it is better to check on these item groups when adding a unit.
 
 If a new item is very strong to the point of trivilizing worlds once it is acquired, it should be added to the overpowered items group.
+
+## Testing
+### Testing mod data
+* Ziktofel has a test map with many pre-placed units, download pinned in the #sc2-dev channel. It is good for testing unit and ability interactions.
+* After deploying mod files to the Starcraft 2 folder, it's possible to generate a new Archipelago game, use `/disable_mission_check` in the client to allow starting any mission, and start the mission.
+  * Use editor commands like `makeunit <unit id>` to make units at the mouse cursor location, or `upgrade <upgrade id>` to give the player an upgrade.
+  * Find a fast generate-and-start script in the yaml repository here: https://github.com/ap-sc2-documentation/yaml-repository/blob/main/devscripts/genstartsc2.py
+
+There are a few ways to deploy mod files quickly. I recommend a script to just copy the .xml and .txt files from your repository clone into your Starcraft II/Mods/ folder. It's also possible to make a symlink from your Starcraft II/Mods/ folder to your repository clone, though this means doing a `/download_data` can write to your repository clone.
+
+### Testing integration
+It's important to test that the item_tables.py data matches what the mod expects.
+This is destructive testing (can only be done once per world before requiring a new seed), so is best done separately from testing the mod data directly.
+
+1. Deploy your mod files to the `Starcraft II/Mods/` folder
+2. Generate a new world locally, start the server, and connect with a client
+3. Start a mission where you can observe your new item being unlocked (building that can train your new unit, unit that can have your new upgrade, etc)
+4. Verify your item is not unlocked yet
+5. In the server console, run `/send <playername> <item name>` to send the item
+6. Verify that the item is unlocked for the player in-game
+
+I like to take screenshots of in-game descriptions and buttons to show them unlocking.

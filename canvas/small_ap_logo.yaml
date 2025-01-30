@@ -1,0 +1,15 @@
+  canvas:
+    - '     ggg     ' # 0
+    - '    ggggg    ' # 1
+    - '    ggggg    ' # 2
+    - ' bbb ggg rrr ' # 3
+    - 'bbbbb g rrrrr' # 4
+    - 'bbbbb   rrrrr' # 5
+    - ' ggg     bbb ' # 6
+    - 'ggggg   bbbbb' # 7
+    - 'gggg     bbbb' # 8
+    - 'ggg  rrr  bbb' # 9
+    - ' gg rrrrr bb ' # 10
+    - '    rrrrr    ' # 11
+    - '    rrrrr    ' # 12
+    - '     rrr     ' # 13

@@ -1,0 +1,15 @@
+  canvas:
+    - '      g      '  # 0
+    - '    g x g    '  # 1
+    - '    xxxxx    '  # 2
+    - ' g   xxx   g '  # 3
+    - '  x  xxx  x  '  # 4
+    - 'gxxx xxx xxxg'  # 5
+    - ' xxxxxxxxxxx '  # 6
+    - 'gxxxxxxxxxxxg'  # 7
+    - ' xxxxxxxxxxx '  # 8
+    - ' xxxxxxxxxxx '  # 9
+    - '  xxxxxxxxx  '  # 10
+    - '  xxxxxxxxx  '  # 11
+    - ' xx   x   xx '  # 12
+    - '      s      '  # 13

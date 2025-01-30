@@ -1,0 +1,14 @@
+  canvas:
+    - '    x    '  # 0
+    - '  x a x  '  # 1
+    - '  aaaaa  '  # 2
+    - '   aaa   '  # 2
+    - ' x aaa x '  # 3
+    - 'xaaaaaaax'  # 4
+    - ' aaaaaaa '  # 4
+    - 'aaaaaaaaa'  # 5
+    - ' aaaaaaa '  # 4
+    - '  aaaaa  '  # 6
+    - '  aaaaa  '  # 7
+    - ' a  a  a '  # 8
+    - '    s    '  # 9

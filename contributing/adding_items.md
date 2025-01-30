@@ -61,7 +61,7 @@ Unlock triggers go in ArchipelagoTriggers.SC2Mod, with the effective code in `Li
 Our unlock triggers are GUI triggers, so these are generally done in the editor.
 
 ### The unlock action
-Most unlock action will simply unlock a single upgrade, like:
+Most unlock actions will simply unlock a single upgrade, like:
 ```C
 void libABFE498B_gf_AP_Triggers_Terran_unlockWraithResourceEfficiency (int lp_player) {
     // Automatic Variable Declarations
@@ -90,7 +90,7 @@ To make sure the unlock trigger is actually called, add it to the CustomScript s
     );
 ```
 
-When registering a new unlock action, the category must match with the client-side `item_type` in the item_tables.py entry, and the argument index must match the `number` parameter in the item_tables.py entry. See [item_tables.py](#item_tables.py)
+When registering a new unlock action, the category must match with the client-side `type` in the item_tables.py entry, and the argument index must match the `number` parameter in the item_tables.py entry. See [item_tables.py](#item_tablespy)
 
 ### Setting default tech
 If the added item is a unit or an ability unlocked with a straight `TechTreeAbilityAllow` or `TechTreeUnitAllow` function, then it needs to be explicitly disabled by default. This is done by the `clear<race>Tech`, in the `TechTree/<race>/` trigger categories.

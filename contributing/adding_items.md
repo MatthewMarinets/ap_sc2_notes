@@ -98,7 +98,7 @@ If the added item is a unit or an ability unlocked with a straight `TechTreeAbil
 If default setup must be done, like giving a default upgrade, that is done by the `give<race>DefaultTech` triggers, also in `TechTree/<race>/` categories.
 
 ### git etiquette
-Prefer to restore / not commit changes to `*.version` files, `DocumentHeader`, or `ComponentList.SC2Components`. The editor likes changes these files, many of which are binary files and thus don't have an easily-viewable diff, but they aren't actually necessary for anyone so the changes can be safely reverted.
+Prefer to restore / not commit changes to `*.version` files, `DocumentHeader`, or `ComponentList.SC2Components`. The editor likes changing these files, many of which are binary files and thus don't have an easily-viewable diff, but they aren't actually necessary for anyone so the changes can be safely reverted.
 
 Undo the changes on the command-line with `git restore **/DocumentHeader *.version **/ComponentList.SC2Components`
 
@@ -138,19 +138,19 @@ The common arguments are:
   * Only progression items may be used in logic rules.
   * Units should generally be progression.
 * The item's `quantity` (item <--> generation logic) (optional). Used to define how many copies of the item can appear in the item pool.
-  * Defaults to 1
+  * Defaults to 1.
   * Note progressive items, with quantities like 2 or 3, should belong to a `Progressive` category, which use different unlock registration functions in the mod.
 * The item's `parent` (item <--> generation logic) (optional). String representing a parent item name. Controls item culling logic during generation -- if a parent item is culled, the child items are also culled. For example, this is what removes Marine stimpack from the item pool if Marines are removed.
   * Defaults to no parent (i.e. never auto-cull).
   * Has a minor effect after generation -- if a player runs `/received` in the client, the parent parameter controls how the output is organized under headings.
-  * More complicated culling rules, such as an item only being auto-culled if multiple parent items are all culled, are represented with logic defined in `item_parents.py`. When using such rules, the `parent` parameter may be set to a string from `parent_names.py`, which should match the culling rule associated with the desired rule in `item_parents.py`.
+  * More complicated culling rules, such as an item only being auto-culled if multiple parent items are all culled, are represented with logic defined in `item_parents.py`. When using such rules, the `parent` parameter may be set to a string from `parent_names.py`, which should match the key to the desired rule in `item_parents.py`.
 
 ### item_groups.py
 New items can optionally be added to explicitly-defined item groups in `item_groups.py`.
 Many item groups are auto-generated from the item's race and type, so no action is required.
 Some item groups that are more thematic, such as Protoss subfactions or Zerg infested, are hand-curated, so it is better to check on these item groups when adding a unit.
 
-If a new item is very strong to the point of trivilizing worlds once it is acquired, it should be added to the overpowered items group.
+If a new item is very strong to the point of trivializing worlds once it is acquired, it should be added to the overpowered items group.
 
 ## Testing
 ### Testing mod data

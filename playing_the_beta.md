@@ -2,7 +2,7 @@
 ## Install tools
 You'll need:
 * git (see [the installation notes in the guide](git.md#installation))
-* Python 3.10 ~ 3.12 ([download here](https://www.python.org/downloads/))
+* Python 3.11 ~ 3.12 ([download here](https://www.python.org/downloads/))
   * Note Python should be installed from the installer, not from winget
   * I recommend doing a system-wide installation, and future instructions will largely assume that's the case
 * You can use a GUI git tool like GitHub for Desktop or SourceTree instead of baseline git; I will give command-line instructions as they're easier to type
@@ -16,10 +16,10 @@ You'll need:
 * Open a command prompt (start menu, type "cmd" and hit enter)
 * Enter commands by typing them out and hitting enter
   1. `where python`
-     * should return a path in `C:/Program Files/Python312` (or `Python311` for 3.11, `Python310` for 3.10, etc)
+     * should return a path in `C:/Program Files/Python312` (or `Python311` for 3.11)
      * **OR** can return a path in `C:/Users` (user installation), unless it's in `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
      * If multiple paths appear, we only care about the first one; ie if the winget version is installed but second in the list, we don't care.
-  2. `python --version` should print the version -- make sure it's 3.10, 3.11, or 3.12
+  2. `python --version` should print the version -- make sure it's 3.11 or 3.12
 * Check the path for Python -- it's broken for a lot of people for some reason
   1. In the start menu, type "env" to click on the option "Modify the System Environment Variables" (Fig. 1)
   2. In the "System Properties" popup, click "Environment Variables" (Fig. 2)
@@ -111,16 +111,6 @@ This is an alternate way to get the maps, more useful for developers.
   * A neat trick is to create a symlink from `<sc2 install>/Maps/ArchipelagoCampaign` to `<repo clone>/target/Maps/ArchipelagoCampaign` (and similar for mods)
 
 ## Troubleshooting
-### Dependency download failing with "can't find rust/cargo"
-This is a hopefully temporary problem caused by a recent (as of December 2024) update to a dependency library called `jellyfish`.
-`jellyfish` uses Rust in addition to Python for some extra speed. It precompiles for a wide variety of operating systems and Python versions.
-As of 8 December 2024, a new version (1.1.2) came out, which does not yet have precompiled downloads for most versions of Python on Windows.
-1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0` to install this version, then run `pip install -r requirements.txt` to install the remaining requirements, and you should be good to go.
-Note running `setup.py` when dependencies are partially installed won't work, as it may try to upgrade jellyfish as part of installing the other dependencies.
-Alternatively, you can install Cargo from the Rust foundation so pip will automatically build the library for your Python version and platform.
-
-You can check the downloadable versions of jellyfish on [their PyPI page](https://pypi.org/project/jellyfish/#files).
-
 ### Uninstalling all libraries
 * This hopefully shouldn't be necessary, but might be if things got installed in user installs when Python / Archipelago wants it in at the system-level
 * in cmd, run:
@@ -136,3 +126,13 @@ Some people have extra requirements for maintaining their system or running the 
   * If you're more technical than I'd expect any reader of this guide to be, Vim and Emacs are also options
   * For the love of god, do not use Visual Studio
 * If you need to keep your system Python libraries clean (ie don't want Archipelago 3rd party libraries interfering with other Python projects), you can use `python venv` to make a project-specific Python install
+
+### [Deprecated] Dependency download failing with "can't find rust/cargo"
+This was a temporary problem caused by an update to a dependency library called `jellyfish` around Dec 2024. It should no longer be a problem.
+`jellyfish` uses Rust in addition to Python for some extra speed. It precompiles for a wide variety of operating systems and Python versions.
+As of 8 December 2024, a new version (1.1.2) came out, which does not yet have precompiled downloads for most versions of Python on Windows.
+1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0` to install this version, then run `pip install -r requirements.txt` to install the remaining requirements, and you should be good to go.
+Note running `setup.py` when dependencies are partially installed won't work, as it may try to upgrade jellyfish as part of installing the other dependencies.
+Alternatively, you can install Cargo from the Rust foundation so pip will automatically build the library for your Python version and platform.
+
+You can check the downloadable versions of jellyfish on [their PyPI page](https://pypi.org/project/jellyfish/#files).

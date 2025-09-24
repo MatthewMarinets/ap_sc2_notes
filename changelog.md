@@ -113,7 +113,6 @@ These notes may be somewhat incomplete.
   * The Dig enemy bases (Mastery)
   * Evacuation enemy bases (Mastery)
   * Smash and Grab Kerrigan's base (Mastery)
-  * Lab Rat in under 10 minutes (Challenge)
   * Rendezvous speedrun reinforcements (Mastery)
   * Reckoning Odin before it moves out (Mastery)
   * Temple of Unification Bases (Mastery)
@@ -124,6 +123,8 @@ These notes may be somewhat incomplete.
   * Amon's Fall clear all the volcanoes at once (Mastery)
   * Sudden Strike kill the Zerg base (Mastery)
 * Several new challenge locations
+  * Lab Rat in under 10 minutes (Challenge)
+  * End Game destroy all the Orbital Commands (Challenge)
 * Several new extra locations
 
 ## New items

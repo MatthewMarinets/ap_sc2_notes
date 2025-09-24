@@ -57,7 +57,7 @@ These notes may be somewhat incomplete.
   belonging to each race
 * `enable_morphling` -- Enable a non-combat Morphling unit for zerg that allows building any morph unit
   without unlocking the base unit
-* `mercenary_highlanders` -- Optionally disable a new behaviour where mercenary Thors, Ultralisks, and
+* `mercenary_highlanders` -- Optionally disable a new behaviour where mercenary Ultralisks and
   Battlecruisers are limited to only having one at a time even with unlimited merc cooldowns unlocked
 * `victory_cache` -- Control how many bonus checks are awarded for completing a mission
 * `player_color_nova` has been added after being missing last release

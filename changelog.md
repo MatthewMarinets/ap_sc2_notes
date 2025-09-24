@@ -160,7 +160,7 @@ These notes may be somewhat incomplete.
   * Protoss
     * Stalwart (Purifier Immortal)
     * Skirmisher (Tal'darim Phoenix)
-    * Intercessor (Aiur Void Ray)
+    * Pulsar (Aiur Void Ray)
     * Dawnbringer (Purifier Void Ray)
     * Mistwing (Nerazim Scout)
     * Caladrius (Purifier Scout)

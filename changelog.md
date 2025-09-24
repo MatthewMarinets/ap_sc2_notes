@@ -118,7 +118,6 @@ These notes may be somewhat incomplete.
   * Reckoning Odin before it moves out (Mastery)
   * Temple of Unification Bases (Mastery)
   * Dark Whispers Kerrigan's base (Mastery)
-  * Temple of Unification enemy bases (Mastery)
   * Rak'Shir in under 15 minutes (Mastery)
   * Salvation kill the brutalisk (Mastery)
   * Essence of Eternity win with fewer than 15 Kerrigan kills (Mastery)
@@ -167,6 +166,7 @@ These notes may be somewhat incomplete.
     * Oppressor (Tal'darim Scout)
     * Skylord (Tal'darim Carrier)
     * Trireme (Purifier Carrier)
+    * Elder Probes (one-time warp-in per mission)
 * New upgrades:
   * Auto-turret (Warhound)
   * Reconstruction (Instigator)
@@ -187,6 +187,7 @@ These notes may be somewhat incomplete.
 * New filler items:
   * Increased maximum supply (beyond 200 cap)
   * Reduced maximum supply (below 200, trap item)
+    * Note this item doesn't generate by default; increase its weight in `filler_items_distribution` to get it
   * Faster shield regen
   * Faster building construction speed
   * Faster upgrade research speed

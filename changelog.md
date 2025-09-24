@@ -177,6 +177,7 @@ These notes may be somewhat incomplete.
   * Corruptor upgrades
   * Sensor Tower upgrades
   * Archon upgrades
+  * Disruptor upgrades
   * New merc upgrades for Terran
   * New merc upgrades for Zerg
   * Predator item rework

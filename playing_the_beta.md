@@ -1,11 +1,46 @@
 # How to play the beta on sc2-next
+## Through an .apworld download
+Now that the beta cycle has merged to Archipelago main, a downloadable apworld is hosted
+[here](https://github.com/MatthewMarinets/Archipelago/releases/tag/v0.6.4).
+
+Note this .apworld will still see minor updates as bugfixes are merged to main before 0.6.4 goes live.
+
+Also note that this .apworld conflicts with the live sc2.apworld;
+in a multiworld, either all sc2 players must be playing the live version,
+or all sc2 players must be playing the beta version.
+
+To install it:
+* Back up the old sc2.apworld in your Archipelago install
+  * For example, by moving it to a folder called `worlds_disabled/` outside of `worlds/`
+* Download sc2.apworld from the link above, and place it in `<archipelago install>/worlds/`
+  * Note it _does not_ go in `custom_worlds/`, as it's replacing a core world
+  * If the old `worlds/sc2.apworld` is not removed, the two will conflict and your yaml may count as invalid
+
+To use it:
+* Run the launcher and click "Generate Template Settings" -> Open to generate a template yaml
+  * Remember to delete the templates you're not using so they don't count as part of your world
+* Fill out your yaml with desired settings
+* Run ArchipelagoGenerate.exe to generate
+  * This will generate an output .zip file in `output/`
+* Upload your generated multiworld to the [archipelago.gg uploads page](https://archipelago.gg/uploads)
+* Create a room and connect as usual
+* Note that the .apworld can't update the website's tracker, so webtracker won't work
+  * It's possible to check out the new webtracker by hosting the webhost locally,
+    but that only works if you're [running from source](#running-the-beta-from-source)
+
+To revert back to the live sc2 apworld:
+* Delete your downloaded `worlds/sc2.apworld`
+* Move your backed-up `worlds_disabled/sc2.apworld` back to `worlds/`
+
+# Running the beta from source
 ## Install tools
 You'll need:
 * git (see [the installation notes in the guide](git.md#installation))
 * Python 3.11 ~ 3.12 ([download here](https://www.python.org/downloads/))
   * Note Python should be installed from the installer, not from winget
   * I recommend doing a system-wide installation, and future instructions will largely assume that's the case
-* You can use a GUI git tool like GitHub for Desktop or SourceTree instead of baseline git; I will give command-line instructions as they're easier to type
+* You can use a GUI git tool like GitHub for Desktop or SourceTree instead of baseline git;
+  I will give command-line instructions as they're easier to type
 
 ### Verifying git installation
 * Open a command prompt (start menu, type "cmd" and hit enter)
@@ -17,7 +52,8 @@ You'll need:
 * Enter commands by typing them out and hitting enter
   1. `where python`
      * should return a path in `C:/Program Files/Python312` (or `Python311` for 3.11)
-     * **OR** can return a path in `C:/Users` (user installation), unless it's in `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
+     * **OR** can return a path in `C:/Users` (user installation), unless it's in
+       `AppData/Local/Microsoft/WindowsApps` -- that's the winget version and it breaks
      * If multiple paths appear, we only care about the first one; ie if the winget version is installed but second in the list, we don't care.
   2. `python --version` should print the version -- make sure it's 3.11 or 3.12
 * Check the path for Python -- it's broken for a lot of people for some reason
@@ -29,7 +65,8 @@ You'll need:
      * `C:\Program Files\Python312\`
      * `C:\Program Files\Python312\Scripts\`
      * Make sure these appear _before_ any other python installation directory if you have multiple
-  6. If any path is missing, you can add it (and verify Python exists in that directory). *If you make updates, be sure to restart command-prompt before continuing*
+  6. If any path is missing, you can add it (and verify Python exists in that directory).
+     *If you make updates, be sure to restart command-prompt before continuing*
   7. Check `where python` and `python --version` again if you made changes
 
 ![Environment](./images/environment_variables_start.png)
@@ -45,7 +82,9 @@ Figure 2: The variables to edit
 Figure 3: Adding the variables near the top of the list
 
 ## Downloading from git
-* The sc2 beta fork is here: https://github.com/Ziktofel/Archipelago.git
+* **New**: the sc2 beta has merged to main, you can find it on https://github.com/ArchipelagoMW/Archipelago.git
+  * Note some bugfixes are still pending, so the sc2 apworld will still see changes before 0.6.4
+  * For reference, the old sc2 beta fork is here: https://github.com/Ziktofel/Archipelago.git
 * Decide what folder you want to put your installation in. I will use `D:/example` for an example
 * Open command-prompt (type `cmd` in the start menu and hit enter)
 * Navigate to the desired folder
@@ -55,16 +94,18 @@ Figure 3: Adding the variables near the top of the list
     * "cd" is short for "change directory"
     * `cd ..` will go up one folder level (e.g. from `D:/example/subfolder` to `D:/example`)
     * auto-complete a folder name by hitting tab
-  * run `git clone https://github.com/Ziktofel/Archipelago.git` to clone (download) the repository
+  * run `git clone https://github.com/ArchipelagoMW/Archipelago.git` to clone (download) the repository
     * This may take several seconds
     * This will create a new folder called `Archipelago/`; you can check it exists with `dir`
   * `cd` into the new `Archipelago/` folder
 * run `git status` to verify the git repository is initialized correctly
-  * This should say what branch you're on; if you're not on `sc2-next`, change to it with `git checkout sc2-next`
+  * This should say what branch you're on; if you're not on `main`, change to it with `git checkout main`
 * In future, you can get the latest updates by just running `git pull` from this location
 
 ## Running
-It is recommended that the first time you run from source, you run from a command-prompt. This is because if there is an error, the command prompt will stay open so you can read it and ask for help. You can run by double-clicking files in the explorer, but the terminal will close instantly on error.
+It is recommended that the first time you run from source, you run from a command-prompt.
+This is because if there is an error, the command prompt will stay open so you can read it and ask for help.
+You can run by double-clicking files in the explorer, but the terminal will close instantly on error.
 
 * Open or an Administrator command-prompt in `D:/example/Archipelago`
   * You can get an administrator terminal when you start cmd by right-clicking it and selecting "run as administrator"
@@ -81,17 +122,22 @@ It is recommended that the first time you run from source, you run from a comman
   * Tip: on command-line, you can run `MultiServer.py <output_zip_name>` to instantly start the server without going through a file-selection screen
 * Run `Starcraft2Client.py` to start up the sc2 client
   * [Update the map and mod files](#updating-the-mod-files) by running `/download_data`
-* Report issues to the github at https://github.com/Ziktofel/Archipelago/issues
+* Report issues to #sc2-dev thread in the discord, or on the github at https://github.com/Ziktofel/Archipelago/issues
 * Have fun!
 
 ## Updating the mod files
-The simplest way to get the latest files is to run `/download_data` in the client. This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases).
+The simplest way to get the latest files is to run `/download_data` in the client.
+This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases).
 
 ### Installing manually from the releases page
-You generally shouldn't have to do this, but you can just do what `/download_data` does manually by going to the [releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases), selecting the Archipelago-SC2Data.zip artifact of the API version you want, unzipping, and putting the contents of the Maps/ and Mods/ folders into the corresponding folders of your sc2 install.
+You generally shouldn't have to do this, but you can just do what `/download_data` does manually
+by going to the [releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases),
+selecting the Archipelago-SC2Data.zip artifact of the API version you want, unzipping,
+and putting the contents of the Maps/ and Mods/ folders into the corresponding folders of your sc2 install.
 
 ### Installing manually from the actions page
-This also generally shouldn't be necessary, though it does allow selecting the mod files from a particular branch or push. So if you want to get the files for a feature which is still in PR (say, to assist in testing a new unit), you can follow these steps.
+This also generally shouldn't be necessary, though it does allow selecting the mod files from a particular branch or push.
+So if you want to get the files for a feature which is still in PR (say, to assist in testing a new unit), you can follow these steps.
 * Sign into a github account. Make one if you don't have one
 * Go to the [Github Actions page for the map/mod repository](https://github.com/Ziktofel/Archipelago-SC2-data/actions)
 * Click the build (white text) for the latest build labeled with the desired branch
@@ -102,13 +148,24 @@ This also generally shouldn't be necessary, though it does allow selecting the m
 This is an alternate way to get the maps, more useful for developers.
 * Clone the archipelago-sc2-data repository or your fork of it. Fork from [Ziktofel's fork](https://github.com/Ziktofel/Archipelago-SC2-data) or clone his fork directly
 * For windows users:
-  * Open `build_release_package.sh` and `Maps/ArchipelagoCampaign/build.sh` in an editor like vscode or Notepad++. Change the line ending to Unix-style (LF)
+  * Open `build_release_package.sh` and `Maps/ArchipelagoCampaign/build.sh` in an editor like vscode or Notepad++.
+    Change the line ending to Unix-style (LF)
     * In vscode, this is done by clicking the little "CRLF" in the bottom-bar or running the "Change End of Line Sequence" task, and selecting LF
     * In Notepad++, this is done with Edit -> EOL Conversion -> LF
   * Ensure you have WSL (Windows Subsystem for Linux) enabled. Use the WSL terminal to execute .sh scripts
 * Run `./build_release_package.sh` in a terminal. This should build the maps, and will take a minute or two
 * The result should appear in the target/ directory. Get the contained Maps/ and Mods/ folders to your sc2 install
   * A neat trick is to create a symlink from `<sc2 install>/Maps/ArchipelagoCampaign` to `<repo clone>/target/Maps/ArchipelagoCampaign` (and similar for mods)
+
+## Details / other ways of running for technical users
+Some people have extra requirements for maintaining their system or running the code
+* If you're debugging, get set up with an IDE
+  * I recommend vscode with the pylance extension (Visual Studio Code, not the same as Visual Studio)
+  * Many developers use PyCharm, which is a Python-specific but high-quality IDE
+  * If you're more technical than I'd expect any reader of this guide to be, Vim and Emacs are also options
+  * For the love of god, do not use Visual Studio
+* If you need to keep your system Python libraries clean (ie don't want Archipelago 3rd party libraries interfering with other Python projects),
+  you can use `python venv` to make a project-specific Python install
 
 ## Troubleshooting
 ### Uninstalling all libraries
@@ -118,20 +175,13 @@ This is an alternate way to get the maps, more useful for developers.
   * `python -m pip uninstall -r reqs.txt` to uninstall everything in reqs.txt
   * `del reqs.txt` to delete the reqs.txt file
 
-## Details / other ways of running for technical users
-Some people have extra requirements for maintaining their system or running the code
-* If you're debugging, get set up with an IDE
-  * I recommend vscode with the pylance extension (Visual Studio Code, not the same as Visual Studio)
-  * Many developers use PyCharm, which is a Python-specific but high-quality IDE
-  * If you're more technical than I'd expect any reader of this guide to be, Vim and Emacs are also options
-  * For the love of god, do not use Visual Studio
-* If you need to keep your system Python libraries clean (ie don't want Archipelago 3rd party libraries interfering with other Python projects), you can use `python venv` to make a project-specific Python install
-
 ### [Deprecated] Dependency download failing with "can't find rust/cargo"
-This was a temporary problem caused by an update to a dependency library called `jellyfish` around Dec 2024. It should no longer be a problem.
+This was a temporary problem caused by an update to a dependency library called `jellyfish` around Dec 2024.
+It should no longer be a problem.
 `jellyfish` uses Rust in addition to Python for some extra speed. It precompiles for a wide variety of operating systems and Python versions.
 As of 8 December 2024, a new version (1.1.2) came out, which does not yet have precompiled downloads for most versions of Python on Windows.
-1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0` to install this version, then run `pip install -r requirements.txt` to install the remaining requirements, and you should be good to go.
+1.1.0 has working downloads on Windows for Python 3.8 ~ 3.12, so you can run `pip install jellyfish==1.1.0`
+to install this version, then run `pip install -r requirements.txt` to install the remaining requirements, and you should be good to go.
 Note running `setup.py` when dependencies are partially installed won't work, as it may try to upgrade jellyfish as part of installing the other dependencies.
 Alternatively, you can install Cargo from the Rust foundation so pip will automatically build the library for your Python version and platform.
 

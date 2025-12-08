@@ -301,7 +301,7 @@ it required adding a symlink at `$(WINEPREFIX)/drive_c/Program Files (x86)/Battl
 
 #### When the game can run under Lutris
 With things working via Lutris, it's possible to export and modify a Lutris run script following the
-[instructions on archipelago.gg]((https://archipelago.gg/tutorial/Starcraft%202/setup_en#running-in-linux)).
+[instructions on archipelago.gg](https://archipelago.gg/tutorial/Starcraft%202/setup_en#running-in-linux).
 The only things that have to change is that the last two lines of code change from finding and running
 `ARCHIPELAGO` and instead run the client via Python:
 ```sh
@@ -338,7 +338,7 @@ or make another script to quickly launch and connect to a slot.
 To connect to the room at `archipelago.gg:57777` and slot "phaneros" as an example:
 ```sh
 . ./venv/bin/activate
-./sc2client.sh --connect archipelago.gg:<port> --name phaneros
+./sc2client.sh --connect archipelago.gg:57777 --name phaneros
 ```
 
 ## Updating the mod files

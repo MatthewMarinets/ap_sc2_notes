@@ -1,5 +1,22 @@
 # How to play the beta on sc2-next
+This guide explains how to start playing the in-development beta version of Archipelago sc2.
+The main guide assumes users are installing on Windows.
+See the [Linux section](#running-the-beta-from-source-linux-users) for Linux instructions.
+
+## Which version?
+Starcraft 2 doesn't release major content updates on every Archipelago version.
+A mapping of starcraft 2 updates to Archipelago updates is provided:
+
+* version 5, current beta (not part of any core Archipelago release)
+* version 4, Archipelago release 0.6.4: **The raceswap release**
+* version 3, Archipelago release 0.4.5: **The multi-campaign release**
+* version 2, Archipelago release 0.4.3: **The WoL extended items release**
+* version 1, Archipelago release 0.3.2: **The Original WoL-only release**
+
 ## Through an .apworld download
+The latest beta version currently doesn't have an .apworld download link.
+
+<!--
 Now that the beta cycle has merged to Archipelago main, a downloadable apworld is hosted
 [here](https://github.com/MatthewMarinets/Archipelago/releases/tag/v0.6.4).
 
@@ -31,8 +48,9 @@ To use it:
 To revert back to the live sc2 apworld:
 * Delete your downloaded `worlds/sc2.apworld`
 * Move your backed-up `worlds_disabled/sc2.apworld` back to `worlds/`
+-->
 
-# Running the beta from source
+# Running the beta from source (Windows users)
 ## Install tools
 You'll need:
 * git (see [the installation notes in the guide](git.md#installation))
@@ -82,9 +100,6 @@ Figure 2: The variables to edit
 Figure 3: Adding the variables near the top of the list
 
 ## Downloading from git
-* **New**: the sc2 beta has merged to main, you can find it on https://github.com/ArchipelagoMW/Archipelago.git
-  * Note some bugfixes are still pending, so the sc2 apworld will still see changes before 0.6.4
-  * For reference, the old sc2 beta fork is here: https://github.com/Ziktofel/Archipelago.git
 * Decide what folder you want to put your installation in. I will use `D:/example` for an example
 * Open command-prompt (type `cmd` in the start menu and hit enter)
 * Navigate to the desired folder
@@ -94,12 +109,12 @@ Figure 3: Adding the variables near the top of the list
     * "cd" is short for "change directory"
     * `cd ..` will go up one folder level (e.g. from `D:/example/subfolder` to `D:/example`)
     * auto-complete a folder name by hitting tab
-  * run `git clone https://github.com/ArchipelagoMW/Archipelago.git` to clone (download) the repository
+  * run `git clone https://github.com/archipelago-sc2/Archipelago.git` to clone (download) the repository
     * This may take several seconds
     * This will create a new folder called `Archipelago/`; you can check it exists with `dir`
   * `cd` into the new `Archipelago/` folder
 * run `git status` to verify the git repository is initialized correctly
-  * This should say what branch you're on; if you're not on `main`, change to it with `git checkout main`
+  * This should say what branch you're on; if you're not on `sc2-next`, change to it with `git checkout sc2-next`
 * In future, you can get the latest updates by just running `git pull` from this location
 
 ## Running
@@ -122,16 +137,16 @@ You can run by double-clicking files in the explorer, but the terminal will clos
   * Tip: on command-line, you can run `MultiServer.py <output_zip_name>` to instantly start the server without going through a file-selection screen
 * Run `Starcraft2Client.py` to start up the sc2 client
   * [Update the map and mod files](#updating-the-mod-files) by running `/download_data`
-* Report issues to #sc2-dev thread in the discord, or on the github at https://github.com/Ziktofel/Archipelago/issues
+* Report issues to #sc2-dev thread in the discord, or on the github at https://github.com/archipelago-sc2/Archipelago/issues
 * Have fun!
 
 ## Updating the mod files
 The simplest way to get the latest files is to run `/download_data` in the client.
-This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases).
+This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/archipelago-sc2/Archipelago-SC2-data/releases).
 
 ### Installing manually from the releases page
 You generally shouldn't have to do this, but you can just do what `/download_data` does manually
-by going to the [releases page](https://github.com/Ziktofel/Archipelago-SC2-data/releases),
+by going to the [releases page](https://github.com/archipelago-sc2/Archipelago-SC2-data/releases),
 selecting the Archipelago-SC2Data.zip artifact of the API version you want, unzipping,
 and putting the contents of the Maps/ and Mods/ folders into the corresponding folders of your sc2 install.
 
@@ -139,14 +154,15 @@ and putting the contents of the Maps/ and Mods/ folders into the corresponding f
 This also generally shouldn't be necessary, though it does allow selecting the mod files from a particular branch or push.
 So if you want to get the files for a feature which is still in PR (say, to assist in testing a new unit), you can follow these steps.
 * Sign into a github account. Make one if you don't have one
-* Go to the [Github Actions page for the map/mod repository](https://github.com/Ziktofel/Archipelago-SC2-data/actions)
+* Go to the [Github Actions page for the map/mod repository](https://github.com/archipelago-sc2/Archipelago-SC2-data/actions)
 * Click the build (white text) for the latest build labeled with the desired branch
 * Click the "Archipelago-SC2Data" link in the Artifacts section, near the bottom of the page. This requires being signed into github. This should download a .zip file
 * Unpack the .zip; it should contain folders named `Maps/` and `Mods/`. Paste the contents of these folders into the Maps/ and Mods/ folders of your sc2 install
 
 ### Building locally
 This is an alternate way to get the maps, more useful for developers.
-* Clone the archipelago-sc2-data repository or your fork of it. Fork from [Ziktofel's fork](https://github.com/Ziktofel/Archipelago-SC2-data) or clone his fork directly
+* Clone the archipelago-sc2-data repository or your fork of it.
+  Fork from [the APsc2 organization's repo](https://github.com/archipelago-sc2/Archipelago-SC2-data) or clone that fork directly
 * For windows users:
   * Open `build_release_package.sh` and `Maps/ArchipelagoCampaign/build.sh` in an editor like vscode or Notepad++.
     Change the line ending to Unix-style (LF)
@@ -186,3 +202,151 @@ Note running `setup.py` when dependencies are partially installed won't work, as
 Alternatively, you can install Cargo from the Rust foundation so pip will automatically build the library for your Python version and platform.
 
 You can check the downloadable versions of jellyfish on [their PyPI page](https://pypi.org/project/jellyfish/#files).
+
+# Running the beta from source (Linux users)
+The steps to run the client from source are fundamentally the same on Linux, with a few minor differences:
+* Installing git and Python is much easier
+* Python is referred to as `python3` on the command-line instead of `python`
+* Python will generally be a "managed installation", meaning you have to use a venv to install dependencies
+
+Actually running the game is harder, and not fully covered here.
+A script similar to the Linux setup instructions [on the archipelago.gg website](https://archipelago.gg/tutorial/Starcraft%202/setup_en#running-in-linux)
+will be necessary.
+
+## Install tools
+* You will need Python version 3.11+ and git
+* These are likely already installed. If not, use your distribution's package manager.
+  * Using `apt` (the package manager for Debian-based distros) as an example:
+```sh
+sudo apt install git
+sudo apt install python3
+```
+
+## Verify tools installation
+In a terminal, run the following commands to check that the programs are installed and on the path:
+```sh
+python3 --version
+git --version
+```
+
+You should see an output something like:
+```sh
+$ python3 --version
+Python 3.12.3
+$ git --version
+git version 2.43.0
+```
+
+## Downloading from git
+* Decide what folder you want to put your installation in. I will use `~/code` for an example
+* Open a terminal in that directory
+  * You can navigate between folders in a terminal with `cd <folder name>`
+    * `cd ..` goes up one folder level
+    * `ls` prints the files and folders in the current folder
+* run `git clone https://github.com/archipelago-sc2/Archipelago.git` to clone (download) the repository
+  * This may take several seconds
+  * This will create a new folder called `Archipelago/`; you can check it exists with `ls`
+  * `cd` into the new `Archipelago/` folder
+* run `git status` to verify the git repository is initialized correctly
+  * This should say what branch you're on; if you're not on `sc2-next`, change to it with `git checkout sc2-next`
+* In future, you can get the latest updates by just running `git pull` from this location
+
+## Running
+### First time running any source-client
+Archipelago has dependencies that it will try to install.
+With Python installed via system package manager, this will only work in a venv.
+Create one in the terminal with:
+```sh
+python -m venv venv
+```
+
+You can "activate" the venv (use the dependencies installed there) in any terminal by going to your
+archipelago install and running:
+```sh
+. ./venv/bin/activate
+```
+
+At this point, you should be able to run the Archipelago client by running the following:
+```sh
+python3 Launcher.py "Starcraft 2 Client"
+```
+
+**Note that missions will not start without wine configuration**.
+
+### Running missions with wine
+Starcraft 2 doesn't have a native linux installation, so we have to use `wine`.
+Proton also goes through `wine`,
+you'll just have to dig up the precise filepaths within the Proton installation.
+
+The rough steps are:
+* Get a battle.net executable
+* Run that through wine
+* Use that to install starcraft 2
+* Once that works, you can either start starcraft 2 through battle.net in future, or run it directly
+  through `SC2Switcher` (boots straight into sc2 or a specific map, but requires signing in in-game)
+* Create a script to launch Archipelago's Launcher.py while setting all the necessary
+  wine environment variables to run Battle.net / starcraft 2
+  * I will call this script `sc2client.sh` for this example
+* Use this script to launch the Archipelago client in future
+  * You will need to make the script executable the first time (`chmod +x ./sc2client.sh`)
+  * Use `/download_data` within the client to download map/mod data
+
+In my experience, the Battle.net launcher did not work with out-of-the-box wine.
+Pages for different games simply wouldn't render.
+I had to install a newer version through ProtonPlus (`10.15-staging-tkg`).
+
+The default Lutris configuration for Battle.net also didn't work,
+it required adding a symlink at `$(WINEPREFIX)/drive_c/Program Files (x86)/Battle.net` pointing to
+`$(WINEPREFIX)/Battle.net`.
+
+#### When the game can run under Lutris
+With things working via Lutris, it's possible to export and modify a Lutris run script following the
+[instructions on archipelago.gg]((https://archipelago.gg/tutorial/Starcraft%202/setup_en#running-in-linux)).
+The only things that have to change is that the last two lines of code change from finding and running
+`ARCHIPELAGO` and instead run the client via Python:
+```sh
+python3 Launcher.py "Starcraft 2 Client" -- $@
+```
+
+#### Without Lutris
+You will need to create a script that sets the necessary wine environment variables and launches the client.
+A skeleton script is provided; paths will have to be updated to point towards file locatinos on your system.
+* `WINE` points to the version of wine that can successfully run Starcraft 2
+* `WINEPREFIX` points to the WinePrefix (the mini-Windows file system) where the starcraft 2 installation lives
+* `SC2PATH` should point to the `Program Files (x86)/Starcraft II` folder within the wine prefix
+```sh
+#!/usr/bin/env bash
+# Wine
+export WINEARCH="win64"
+export WINE="/home/phaneros/.local/share/lutris/runners/wine/wine-10.15-staging-tkg-amd64/bin/wine"
+export WINEPREFIX="/home/phaneros/Games/battlenet"
+
+# Archipelago
+export SC2PF=WineLinux
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
+export SC2PATH="/home/phaneros/Games/battlenet/drive_c/Program Files (x86)/StarCraft II/"
+
+# Command
+python3 ./Launcher.py "Starcraft 2 Client" -- $@
+```
+
+#### Quick starts
+The `-- $@` at the end of these scripts forwards arguments to the starcraft 2 client.
+You can use this to quickly-connect from the command-line,
+or make another script to quickly launch and connect to a slot.
+
+To connect to the room at `archipelago.gg:57777` and slot "phaneros" as an example:
+```sh
+. ./venv/bin/activate
+./sc2client.sh --connect archipelago.gg:<port> --name phaneros
+```
+
+## Updating the mod files
+The simplest way to get the latest files is to run `/download_data` in the client.
+This fetches and installs the files from the [ap-sc2-data releases page](https://github.com/archipelago-sc2/Archipelago-SC2-data/releases).
+
+### Installing manually from the releases page
+You generally shouldn't have to do this, but you can just do what `/download_data` does manually
+by going to the [releases page](https://github.com/archipelago-sc2/Archipelago-SC2-data/releases),
+selecting the Archipelago-SC2Data.zip artifact of the API version you want, unzipping,
+and putting the contents of the Maps/ and Mods/ folders into the corresponding folders of your sc2 install.

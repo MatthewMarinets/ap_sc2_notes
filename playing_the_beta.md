@@ -54,7 +54,9 @@ To revert back to the live sc2 apworld:
 ## Install tools
 You'll need:
 * git (see [the installation notes in the guide](git.md#installation))
-* Python 3.11 ~ 3.12 ([download here](https://www.python.org/downloads/))
+* Python 3.11 ~ 3.13 ([download here](https://www.python.org/downloads/))
+  * Note you're looking for the windows executable in the table on a version's page,
+    _not_ "Download Python Install Manager"
   * Note Python should be installed from the installer, not from winget
   * I recommend doing a system-wide installation, and future instructions will largely assume that's the case
 * You can use a GUI git tool like GitHub for Desktop or SourceTree instead of baseline git;
@@ -126,12 +128,14 @@ You can run by double-clicking files in the explorer, but the terminal will clos
   * You can get an administrator terminal when you start cmd by right-clicking it and selecting "run as administrator"
 * run `python setup.py` in the administrator command prompt
   * This should ask to download all third party-libraries; hit enter to proceed
+    * If it bugs you about cx_freeze errors, these are skippable and you can still hit enter to proceed
   * We expect this to error with "error: no commands supplied"
   * If there is some other error (usually complaining about cx_freeze), something went wrong with installing libraries.
     * Share the error message in the discord to get help (and we can update this guide, hopefully)
   * Otherwise, we should be ready to go; command-prompt is optional from here on
 * Close the administrator command-prompt -- we shouldn't need it anymore, and it's not secure to leave administrator command-prompts open for long periods in general
 * Run `Launcher.py` to get your template yamls
+  * This is done with the "Generate Template Options" command in the launcher
 * Run `Generate.py` to generate a game with yamls in the Players/ folder
 * Run `MultiServer.py` to locally-host a generated world
   * Tip: on command-line, you can run `MultiServer.py <output_zip_name>` to instantly start the server without going through a file-selection screen
